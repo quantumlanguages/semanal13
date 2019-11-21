@@ -7,9 +7,6 @@
 % fuente
 \renewcommand{\familydefault}{\sfdefault}
 
-% cosas matemáticas
-\usepackage{amssymb}
-
 % idioma
 \usepackage[spanish]{babel}
 
@@ -56,6 +53,57 @@
             \item Agrega \textbf{una sóla} regla de subtipado que haga válidp el
             subtipado del inciso anterior y muestra su derivación formal con el 
             nuevo sistema.
+
+            Se puede agregar una regla para currificar un tipo usando
+            registros en lugar de productos.
+
+            \[
+                \begin{prooftree}
+                    \hypo{T \x T_0 \m \{\ell_1 : T_1, \dots, \} \leq 
+                    S \x S_0 \m \{\ell_1 : S_1, \dots, \}}
+                    \infer 1 [Quasi-currying]
+                    {T \m \{\ell_0 : T_0, \ell_1 : T_1, \dots, \} \leq 
+                    S \x S_0 \m \{\ell_1 : S_1, \dots, \}}
+                \end{prooftree}
+            \]
+
+            Por lo que la derivación completa quedaría como 
+            \[
+                \begin{prooftree}
+                    \hypo{Axioma}
+                    \infer 1 {E \leq B}
+
+                    \infer 0 [trans] {D \leq A}
+
+                    \infer 0 [ref] {A \leq A}
+
+                    \infer 3 {E \x D \x A \leq B \x A \x A}
+
+                    \hypo{Axioma}
+                    \infer 1 {D \leq A}
+
+                    \infer 1 [prof] {\{\ell : D\} \leq \{\ell : A\}}
+
+                    \infer 2 [func] {
+                        B \x A \x A \m \{\ell : D\} \leq 
+                        E \x D \x A \m \{\ell : A\}
+                    }
+
+                    \infer 1 [curr] {
+                        B \x A \m \{\ell' : A, \ell : D\} \leq 
+                        E \x D \x A \m \{\ell : A\}
+                    }
+
+                    \hypo{Axioma}
+                    \infer 1 {C \leq A}
+
+                    \infer 2 [func] {
+                        E \x D \x A \m \{\ell : A\} \m C \leq
+                        B \x A \m \{\ell' : A, \ell : D\} \m A
+                    }
+                \end{prooftree}
+            \]
+
         \end{enumerate}
     \end{enumerate}
 \end{document}
