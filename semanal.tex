@@ -1,0 +1,61 @@
+% tipo
+\documentclass{article}
+
+% formato
+\usepackage[letterpaper, margin=1.5cm]{geometry}
+
+% fuente
+\renewcommand{\familydefault}{\sfdefault}
+
+% cosas matemáticas
+\usepackage{amssymb}
+
+% idioma
+\usepackage[spanish]{babel}
+
+% lógica
+\usepackage{ebproof}
+
+% macros
+\newcommand{\x}{\times}
+\newcommand{\m}{\rightarrow}
+
+% encabezado
+\title{
+    Lenguajes de Programación 2020-1\\
+    Facultad de Ciencias UNAM\\
+    Ejericio Semanal 13
+}
+
+\author{
+    Sandra del Mar Soto Corderi \qquad
+    Edgar Quiroz Castañeda
+}
+
+\date{
+    Fecha de entrega: 21 de noviembre de 2019
+}
+
+% documento
+
+\begin{document}
+    \maketitle
+
+    \begin{enumerate}
+        \item Considera los siguientes aximas de subtipado:
+        \[D \leq B \quad E \leq B \quad B \leq A \quad C \leq A\]
+
+        \begin{enumerate}
+            \item Muestre formalmente siel subtipado
+            \[
+                (E \x D \x A \m \{\ell:A\}) \m C \leq 
+                (B \x A \m \{\ell':A, \ell:D\}) \m A
+            \]
+            es válida, de noserlo explica por qué.
+
+            \item Agrega \textbf{una sóla} regla de subtipado que haga válidp el
+            subtipado del inciso anterior y muestra su derivación formal con el 
+            nuevo sistema.
+        \end{enumerate}
+    \end{enumerate}
+\end{document}
