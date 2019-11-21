@@ -43,12 +43,42 @@
         \[D \leq B \quad E \leq B \quad B \leq A \quad C \leq A\]
 
         \begin{enumerate}
-            \item Muestre formalmente siel subtipado
+            \item Muestre formalmente si el subtipado
             \[
                 (E \x D \x A \m \{\ell:A\}) \m C \leq 
                 (B \x A \m \{\ell':A, \ell:D\}) \m A
             \]
-            es válida, de noserlo explica por qué.
+            es válido, de no serlo explica por qué.
+
+            Suponiendo que es válido, tendríamos que su árbol de derivación 
+            existe.
+
+            \[
+                \begin{prooftree}
+                    \hypo{Error}
+                    \infer 1 {E \x D \x A \leq  B \x A}
+
+                    \hypo{}
+                    \infer 1 [ampl]{\{\ell' : A, \ell : D\} \leq \{\ell : A\}}
+
+                    \infer 2 [func]{
+                        B \x A \m \{\ell' : A, \ell : D\} \leq 
+                        E \x D \x A \m \{\ell : A\}
+                    }
+
+                    \hypo{Axioma}
+                    \infer 1 {C \leq A}
+
+                    \infer 2 [func] {
+                        E \x D \x A \m \{\ell : A\} \m C \leq
+                        B \x A \m \{\ell' : A, \ell : D\} \m A
+                    }
+                \end{prooftree}
+            \]
+
+            Como los subtipos de tipos productos están definidos entrada por
+            entrada, al tener diferente cantidad de términos automáticamente no
+            son subtipos.
 
             \item Agrega \textbf{una sóla} regla de subtipado que haga válidp el
             subtipado del inciso anterior y muestra su derivación formal con el 
